@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oddnetworks/example-data.git"
+    "url": "git+https://github.com/oddnetworks/oddworks-example-data.git"
   },
   "author": "Odd Networks",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/oddnetworks/example-data/issues"
+    "url": "https://github.com/oddnetworks/oddworks-example-data/issues"
   },
-  "homepage": "https://github.com/oddnetworks/example-data#readme",
+  "homepage": "https://github.com/oddnetworks/oddworks-example-data#readme",
   "dependencies": {
     "bluebird": "^3.3.5",
     "chalk": "^1.1.3",
