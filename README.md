@@ -14,7 +14,7 @@ Require the example data package in your script
 
 		const exampleData = require('@oddnetworks/oddworks-example-data');
 
-The any of the available functions on the module (`exampleData`) will be functions that take an [oddcast](https://github.com/oddnetworks/oddcast) bus, like so:
+Functions on the module `exampleData` will take an [oddcast](https://github.com/oddnetworks/oddcast) bus, like so:
 
 		const oddcast = require('oddcast');
 		const bus = oddcast.bus();
@@ -28,6 +28,8 @@ In reality, these functions can do whatever you like. We use them to send messag
 ### Seed Script
 
 In the __nasa__ example, we're loading all the relative JSON files, which each contain a single object, and sending them into our stores.
+
+__Note__: You don't have to use JSON files here. This data can come from anywhere. Any objects passed to the bus should be in the oddworks entity data format, however.
 
 ```js
 
