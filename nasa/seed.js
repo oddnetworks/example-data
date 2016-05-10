@@ -3,7 +3,6 @@
 const path = require('path');
 
 const chalk = require('chalk');
-const _ = require('lodash');
 const jwt = require('jsonwebtoken');
 const Promise = require('bluebird');
 const glob = Promise.promisifyAll(require('glob')).GlobAsync;
@@ -12,14 +11,18 @@ const searchableTypes = ['collection', 'video'];
 const jwtSecret = process.env.JWT_SECRET || 'secret';
 
 function loadFiles(files) {
-	return _.map(files, file => {
-		return require(path.join(__dirname, file)); // eslint-disable-line
-	});
+	const objects = [];
+	for(let file of files) {
+		objects.push(require(path.join(__dirname, file))); // eslint-disable-line
+	}
+	return objects;
 }
 
 function seedData(bus, objects) {
-	return _.map(objects, object => {
-		const searchable = Boolean(_.indexOf(searchableTypes, object.type) + 1);
+	const promises = [];
+
+	for(let object of objects) {
+		const searchable = Boolean(searchableTypes.indexOf(object.type) + 1);
 		let pattern = {role: 'store', cmd: 'set', type: object.type};
 		if (searchable) {
 			pattern = {role: 'catalog', cmd: 'create', searchable: true};
@@ -34,18 +37,20 @@ function seedData(bus, objects) {
 
 		const token = jwt.sign(payload, jwtSecret);
 		if (object.type === 'platform') {
-			console.log(chalk.blue(`${_.capitalize(object.type)}: `) + chalk.cyan(object.id));
+			console.log(chalk.blue(`${object.type}: `) + chalk.cyan(object.id));
 			console.log(chalk.blue('     JWT: ') + chalk.cyan(token));
 			console.log('');
 		} else {
-			console.log(chalk.blue(`${_.capitalize(object.type)}: `) + chalk.cyan(object.id));
+			console.log(chalk.blue(`${object.type}: `) + chalk.cyan(object.id));
 		}
 		if (object.type === 'channel') {
 			console.log('');
 		}
 
-		return bus.sendCommand(pattern, object);
-	});
+		promises.push(bus.sendCommand(pattern, object));
+	}
+
+	return promises;
 }
 
 module.exports = bus => {

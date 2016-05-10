@@ -18,39 +18,50 @@ The any of the available functions on the module (`exampleData`) will be functio
 
 		const oddcast = require('oddcast');
 		const bus = oddcast.bus();
-		
+
 		exampleData.nasa(bus);
 
 These functions return promises.
 
 In reality, these functions can do whatever you like. We use them to send messages on the oddcast bus so that our example data is sent to any observing "stores". Read more about stores in [oddworks](https://github.com/oddnetworks/oddworks)
 
-### NASA seed script explained
+### Seed Script
 
 In the __nasa__ example, we're loading all the relative JSON files, which each contain a single object, and sending them into our stores.
 
 ```js
+
+// note: this function returns a promise
 module.exports = bus => {
+
 	// first get an array of all the paths for channels and platforms
 	return glob('./+(channel|platform)/*.json', {cwd: __dirname})
-		// then load all the "channel" and "platform" objects
+
+		// next, load all the "channel" and "platform" objects
 		.then(loadFiles)
+
+		// next, ensure each of those objects are sent to our store(s)
 		.then(objects => {
 			//...
-			// next, send all of those objects to the "seedData" method,
+			// Here we send all objects to the "seedData" method,
 			// which will create an array of promises
+			// we'll wrap that in Promise.all, to ensure they all run
+			// before continuing
 			return Promise.all(seedData(bus, objects));
 		})
+
+		// next we'll get an array of all the paths for collections,
+		// promotions, videos, and views
 		.then(() => {
-			// once all the channels and platforms are loaded into our store(s),
-			// get an array of all the paths for collections, promotions, videos, and views
 			return glob('./+(collection|promotion|video|view)/*.json', {cwd: __dirname});
 		})
+
 		// then load all the "collection", "promotion", "video" and "view" objects
 		.then(loadFiles)
+
+		// finally, we'll ensure all of the objects are sent to our store(e)
 		.then(objects => {
 			// ...
-			// finally, seed our store(s) with the collections, promotions, videos, and views
 			return Promise.all(seedData(bus, objects))
 		});
 };
@@ -65,15 +76,19 @@ function seedData(bus, objects) {
 	// bus is your oddcast bus
 	// objects is an array of the objects defined within each JSON file
 
-	// we need to map over all the objects and create promises for each
-	return _.map(objects, object => {
+	// we are going to return an array of promises
+	const promises = [];
+
+	// we need to iterate over all the objects and create promises for each
+	for(let object of objects) {
+
 		// the searchable variable is set to true if the object.type is one of the searchableTypes
-		const searchable = Boolean(_.indexOf(searchableTypes, object.type) + 1);
-		
+		const searchable = Boolean(searchableTypes.indexOf(object.type) + 1);
+
 		// by default, we use the following pattern:
 		let pattern = {role: 'store', cmd: 'set', type: object.type};
 		// be sure that your oddcast bus has an observer for this command pattern
-		
+
 		if (searchable) {
 			// searchable objects have a different pattern
 			pattern = {role: 'catalog', cmd: 'create', searchable: true};
@@ -88,11 +103,14 @@ function seedData(bus, objects) {
 		};
 
 		// ... console logging omitted - these are convenience methods
-	
-		// finally, send the command on your oddcast bus
-		return bus.sendCommand(pattern, object);
-		// this will return a promise
-	});
+
+		// next, send the command on your oddcast bus
+		// sendCommand returns a promise, so we push that to our promises array
+		promises.push(bus.sendCommand(pattern, object));
+	}
+
+	// finally, return our stored object promises
+	return promises;
 }
 ```
 
