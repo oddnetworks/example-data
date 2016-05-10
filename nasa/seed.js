@@ -22,7 +22,7 @@ function seedData(bus, objects) {
 	const promises = [];
 
 	for(let object of objects) {
-		const searchable = Boolean(_.indexOf(searchableTypes, object.type) + 1);
+		const searchable = Boolean(searchableTypes.indexOf(object.type) + 1);
 		let pattern = {role: 'store', cmd: 'set', type: object.type};
 		if (searchable) {
 			pattern = {role: 'catalog', cmd: 'create', searchable: true};
@@ -37,11 +37,11 @@ function seedData(bus, objects) {
 
 		const token = jwt.sign(payload, jwtSecret);
 		if (object.type === 'platform') {
-			console.log(chalk.blue(`${_.capitalize(object.type)}: `) + chalk.cyan(object.id));
+			console.log(chalk.blue(`${object.type}: `) + chalk.cyan(object.id));
 			console.log(chalk.blue('     JWT: ') + chalk.cyan(token));
 			console.log('');
 		} else {
-			console.log(chalk.blue(`${_.capitalize(object.type)}: `) + chalk.cyan(object.id));
+			console.log(chalk.blue(`${object.type}: `) + chalk.cyan(object.id));
 		}
 		if (object.type === 'channel') {
 			console.log('');
