@@ -76,10 +76,14 @@ function seedData(bus, objects) {
 	// bus is your oddcast bus
 	// objects is an array of the objects defined within each JSON file
 
-	// we need to map over all the objects and create promises for each
-	return _.map(objects, object => {
+	// we are going to return an array of promises
+	const promises = [];
+
+	// we need to iterate over all the objects and create promises for each
+	for(let object of objects) {
+
 		// the searchable variable is set to true if the object.type is one of the searchableTypes
-		const searchable = Boolean(_.indexOf(searchableTypes, object.type) + 1);
+		const searchable = Boolean(searchableTypes.indexOf(object.type) + 1);
 
 		// by default, we use the following pattern:
 		let pattern = {role: 'store', cmd: 'set', type: object.type};
@@ -100,10 +104,13 @@ function seedData(bus, objects) {
 
 		// ... console logging omitted - these are convenience methods
 
-		// finally, send the command on your oddcast bus
-		return bus.sendCommand(pattern, object);
-		// this will return a promise
-	});
+		// next, send the command on your oddcast bus
+		// sendCommand returns a promise, so we push that to our promises array
+		promises.push(bus.sendCommand(pattern, object));
+	}
+
+	// finally, return our stored object promises
+	return promises;
 }
 ```
 
