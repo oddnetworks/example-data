@@ -1,8 +1,6 @@
 'use strict';
 
 const path = require('path');
-
-const chalk = require('chalk');
 const jwt = require('jsonwebtoken');
 const Promise = require('bluebird');
 const glob = Promise.promisifyAll(require('glob')).GlobAsync;
@@ -18,7 +16,7 @@ function loadFiles(files) {
 	return objects;
 }
 
-function seedData(bus, objects) {
+function seedData(bus, objects, logger) {
 	const promises = [];
 
 	for(let object of objects) {
@@ -36,15 +34,9 @@ function seedData(bus, objects) {
 		};
 
 		const token = jwt.sign(payload, jwtSecret);
+		logger.debug(`${object.type}: ${object.id}`);
 		if (object.type === 'platform') {
-			console.log(chalk.blue(`${object.type}: `) + chalk.cyan(object.id));
-			console.log(chalk.blue('     JWT: ') + chalk.cyan(token));
-			console.log('');
-		} else {
-			console.log(chalk.blue(`${object.type}: `) + chalk.cyan(object.id));
-		}
-		if (object.type === 'channel') {
-			console.log('');
+			logger.debug(`     JWT: ${token}`);
 		}
 
 		promises.push(bus.sendCommand(pattern, object));
@@ -53,23 +45,21 @@ function seedData(bus, objects) {
 	return promises;
 }
 
-module.exports = bus => {
+module.exports = (bus, logger) => {
 	return glob('./+(channel|platform)/*.json', {cwd: __dirname})
 		.then(loadFiles)
 		.then(objects => {
-			console.log('');
-			console.log(chalk.green(`Loading test Channel and Platforms...`));
-			console.log(chalk.green(`-------------------------------------`));
-			return Promise.all(seedData(bus, objects));
+			logger.debug(`Loading test Channel and Platforms...`);
+			logger.debug(`-------------------------------------`);
+			return Promise.all(seedData(bus, objects, logger));
 		})
 		.then(() => {
 			return glob('./+(collection|promotion|video|view)/*.json', {cwd: __dirname});
 		})
 		.then(loadFiles)
 		.then(objects => {
-			console.log('');
-			console.log(chalk.green(`Loading test Resources...`));
-			console.log(chalk.green(`-------------------------`));
-			return Promise.all(seedData(bus, objects))
+			logger.debug(`Loading test Resources...`);
+			logger.debug(`-------------------------`);
+			return Promise.all(seedData(bus, objects, logger))
 		});
 };
