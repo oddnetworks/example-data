@@ -1,12 +1,9 @@
 'use strict';
 
 const path = require('path');
-const jwt = require('jsonwebtoken');
 const Promise = require('bluebird');
 const glob = Promise.promisifyAll(require('glob')).GlobAsync;
 const searchableTypes = ['collection', 'video'];
-
-const jwtSecret = process.env.JWT_SECRET || 'secret';
 
 function loadFiles(files) {
 	const objects = [];
@@ -16,7 +13,7 @@ function loadFiles(files) {
 	return objects;
 }
 
-function seedData(bus, objects, logger) {
+function seedData(bus, objects) {
 	const promises = [];
 
 	for(let object of objects) {
@@ -26,46 +23,33 @@ function seedData(bus, objects, logger) {
 			pattern = {role: 'catalog', cmd: 'create', searchable: true};
 		}
 
-		const payload = {
-			version: 1,
-			channel: object.channel,
-			platform: object.id,
-			scope: ['platform']
-		};
-
-		const token = jwt.sign(payload, jwtSecret);
-		log(logger, `${object.type}: ${object.id}`);
-		if (object.type === 'platform') {
-			log(logger, `     JWT: ${token}`);
-		}
-
 		promises.push(bus.sendCommand(pattern, object));
 	}
 
 	return promises;
 }
 
-function log(logger, msg) {
-	if (logger) {
-		logger.debug(msg);
-	}
-}
-
-module.exports = (bus, logger) => {
+module.exports = (bus) => {
+	const loaded = [];
 	return glob('./+(channel|platform)/*.json', {cwd: __dirname})
 		.then(loadFiles)
-		.then(objects => {
-			log(logger, `Loading test Channel and Platforms...`);
-			log(logger, `-------------------------------------`);
-			return Promise.all(seedData(bus, objects, logger));
+		.then(resources => {
+			resources.forEach(resource => {
+				loaded.push(resource);
+			});
+			return Promise.all(seedData(bus, resources));
 		})
 		.then(() => {
 			return glob('./+(collection|promotion|video|view)/*.json', {cwd: __dirname});
 		})
 		.then(loadFiles)
-		.then(objects => {
-			log(logger, `Loading test Resources...`);
-			log(logger, `-------------------------`);
-			return Promise.all(seedData(bus, objects, logger))
+		.then(resources => {
+			resources.forEach(resource => {
+				loaded.push(resource);
+			});
+			return Promise.all(seedData(bus, resources))
+		})
+		.then(() => {
+			return Promise.resolve(loaded)
 		});
 };
