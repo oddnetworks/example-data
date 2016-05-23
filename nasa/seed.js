@@ -34,9 +34,9 @@ function seedData(bus, objects, logger) {
 		};
 
 		const token = jwt.sign(payload, jwtSecret);
-		logger.debug(`${object.type}: ${object.id}`);
+		log(logger, `${object.type}: ${object.id}`);
 		if (object.type === 'platform') {
-			logger.debug(`     JWT: ${token}`);
+			log(logger, `     JWT: ${token}`);
 		}
 
 		promises.push(bus.sendCommand(pattern, object));
@@ -45,12 +45,18 @@ function seedData(bus, objects, logger) {
 	return promises;
 }
 
+function log(logger, msg) {
+	if (logger) {
+		logger.debug(msg);
+	}
+}
+
 module.exports = (bus, logger) => {
 	return glob('./+(channel|platform)/*.json', {cwd: __dirname})
 		.then(loadFiles)
 		.then(objects => {
-			logger.debug(`Loading test Channel and Platforms...`);
-			logger.debug(`-------------------------------------`);
+			log(logger, `Loading test Channel and Platforms...`);
+			log(logger, `-------------------------------------`);
 			return Promise.all(seedData(bus, objects, logger));
 		})
 		.then(() => {
@@ -58,8 +64,8 @@ module.exports = (bus, logger) => {
 		})
 		.then(loadFiles)
 		.then(objects => {
-			logger.debug(`Loading test Resources...`);
-			logger.debug(`-------------------------`);
+			log(logger, `Loading test Resources...`);
+			log(logger, `-------------------------`);
 			return Promise.all(seedData(bus, objects, logger))
 		});
 };
