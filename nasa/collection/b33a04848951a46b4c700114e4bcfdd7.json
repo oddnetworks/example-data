@@ -2,9 +2,9 @@
   "id": "b33a04848951a46b4c700114e4bcfdd7",
   "type": "collection",
   "title": "NASA 360 Vodcasts",
-  "images": {
-    "aspect16x9": "https://spaceholder.cc/1920x1080"
-  },
+	"images": [
+		{"url": "https://spaceholder.cc/1920x1080", "mimeType": "image/jpeg"}
+	],
   "relationships": {
     "entities": {
       "data": [

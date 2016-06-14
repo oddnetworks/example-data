@@ -2,9 +2,9 @@
   "id": "51c12f4b70ff4a70925a1be26b8442af",
   "type": "collection",
   "title": "NASA: Featured Collections",
-  "images": {
-    "aspect16x9": "https://spaceholder.cc/1920x1080"
-  },
+	"images": [
+		{"url": "https://spaceholder.cc/1920x1080", "mimeType": "image/jpeg"}
+	],
   "relationships": {
     "entities": {
       "data": [
