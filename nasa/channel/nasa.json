@@ -2,6 +2,9 @@
 	"id": "nasa",
 	"type": "channel",
 	"title": "NASA Sample Videos",
+	"images": [
+		{"url": "http://www.nasa.gov/sites/all/themes/custom/nasatwo/images/nasa-logo.svg", "mimeType": "image/svg+xml", "label": "logo"}
+	],
 	"features": {
 		"authentication": {
 			"enabled": false
