@@ -3,9 +3,9 @@
   "type": "video",
   "title": "NASA 360 Talks - Super Ball Bot",
   "description": "NASA 360 Talks- Super Ball Bot",
-  "images": {
-    "aspect16x9": "http://image.oddworks.io/NASA/space3.jpeg"
-  },
+	"images": [
+		{"url": "http://image.oddworks.io/NASA/space3.jpeg", "mimeType": "image/jpeg"}
+	],
   "url": "http://www.nasa.gov/sites/default/files/atoms/video/nasa_360_talks_-_super_ball_bots.mp4",
   "duration": 84648729,
   "meta": {

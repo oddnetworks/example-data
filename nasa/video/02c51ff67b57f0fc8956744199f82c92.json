@@ -3,9 +3,9 @@
   "type": "video",
   "title": "NASA 360 Talks - Exploring Mars",
   "description": "NASA 360 Talks - Exploring Mars",
-  "images": {
-    "aspect16x9": "http://image.oddworks.io/NASA/space4.jpeg"
-  },
+	"images": [
+		{"url": "http://image.oddworks.io/NASA/space4.jpeg", "mimeType": "image/jpeg"}
+	],
   "url": "http://www.nasa.gov/sites/default/files/atoms/video/nasa_360_talks_-_jim_green_at_lpsc_cut_4-15-15_youtube_settings_final.mp4",
   "duration": 78344653,
   "meta": {

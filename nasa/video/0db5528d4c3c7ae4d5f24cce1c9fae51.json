@@ -3,9 +3,9 @@
   "type": "video",
   "title": "Trek to Mount Sharp Begins",
   "description": "After busily exploring the Glenelg region of Gale Crater, Curiosity is moving on. The rover is starting a 5 mile, or about an 8 kilometer trek southwest towards the foothills of Mt Sharp.",
-  "images": {
-    "aspect16x9": "http://image.oddworks.io/NASA/space1.jpeg"
-  },
+	"images": [
+		{"url": "http://image.oddworks.io/NASA/space1.jpeg", "mimeType": "image/jpeg"}
+	],
   "url": "http://www.nasa.gov/sites/default/files/com20130711-320-jpl.mp4",
   "duration": 1234567,
   "meta": {

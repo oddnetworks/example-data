@@ -3,9 +3,9 @@
   "type": "video",
   "title": "NASA EDGE: Jason 3 Launch",
   "description": "NASA EDGE provides live coverage of the National Oceanic and Atmospheric Administration’s Jason 3 Mission launch from Vandenberg Air Force Base in California.",
-  "images": {
-    "aspect16x9": "http://image.oddworks.io/NASA/space2.jpeg"
-  },
+	"images": [
+		{"url": "http://image.oddworks.io/NASA/space2.jpeg", "mimeType": "image/jpeg"}
+	],
   "url": "http://www.nasa.gov/sites/default/files/atoms/video/lrc-20160201_jason-3_ne1001.mp4",
   "duration": 537310297,
   "meta": {
