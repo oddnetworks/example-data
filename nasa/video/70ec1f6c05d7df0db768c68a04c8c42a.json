@@ -3,9 +3,9 @@
   "type": "video",
   "title": "NASA 360 Talks - Titan Submarine",
   "description": "NASA 360 Talks - Titan Submarine",
-  "images": {
-    "aspect16x9": "http://image.oddworks.io/NASA/space1.jpeg"
-  },
+	"images": [
+		{"url": "http://image.oddworks.io/NASA/space1.jpeg", "mimeType": "image/jpeg"}
+	],
   "url": "http://www.nasa.gov/sites/default/files/atoms/video/nasa_360_talks_-_titan_submarine_cut_3-4-15.mp4",
   "duration": 88462580,
   "meta": {

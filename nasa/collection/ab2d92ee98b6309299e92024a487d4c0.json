@@ -2,9 +2,9 @@
   "id": "ab2d92ee98b6309299e92024a487d4c0",
   "type": "collection",
   "title": "NASACast: What's Up? Video Podcasts",
-  "images": {
-    "aspect16x9": "https://spaceholder.cc/1920x1080"
-  },
+	"images": [
+		{"url": "https://spaceholder.cc/1920x1080", "mimeType": "image/jpeg"}
+	],
   "relationships": {
     "entities": {
       "data": [

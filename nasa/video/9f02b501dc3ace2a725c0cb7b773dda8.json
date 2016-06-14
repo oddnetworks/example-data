@@ -3,9 +3,9 @@
   "type": "video",
   "title": "This Week@ NASA, March 11, 2015",
   "description": "Bolden testifies on FY 2017 NASA budget, First SLS flight engine test and more ...",
-  "images": {
-    "aspect16x9": "http://image.oddworks.io/NASA/space3.jpeg"
-  },
+	"images": [
+		{"url": "http://image.oddworks.io/NASA/space3.jpeg", "mimeType": "image/jpeg"}
+	],
   "url": "http://www.nasa.gov/sites/default/files/atoms/video/nhq_20160311_this_weeknasa_h264.mp4",
   "duration": 63844940,
   "meta": {

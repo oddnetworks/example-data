@@ -3,9 +3,9 @@
   "type": "video",
   "title": "NASA EDGE: New Horizons",
   "description": "NASA EDGE celebrates New Horizons' eminent closest approach to Pluto with their own parallel mission to Pluto, West Virginia.",
-  "images": {
-    "aspect16x9": "http://image.oddworks.io/NASA/space3.jpeg"
-  },
+	"images": [
+		{"url": "http://image.oddworks.io/NASA/space3.jpeg", "mimeType": "image/jpeg"}
+	],
   "url": "http://www.nasa.gov/sites/default/files/atoms/video/ne0906_new_horizons_0.mp4",
   "duration": 525858341,
   "meta": {

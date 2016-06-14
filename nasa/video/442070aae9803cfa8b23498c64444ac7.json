@@ -3,9 +3,9 @@
   "type": "video",
   "title": "Rover Ready to Switch Gears",
   "description": "NASA's Curiosity rover switches to long-distance driving mode as she heads to Mount Sharp.",
-  "images": {
-    "aspect16x9": "http://image.oddworks.io/NASA/space5.jpeg"
-  },
+	"images": [
+		{"url": "http://image.oddworks.io/NASA/space5.jpeg", "mimeType": "image/jpeg"}
+	],
   "url": "http://www.nasa.gov/mp4/754393main_CoM20130607-320-jpl.mp4",
   "duration": 1234567,
   "meta": {

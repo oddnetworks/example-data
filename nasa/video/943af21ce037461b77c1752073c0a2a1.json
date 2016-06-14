@@ -3,9 +3,9 @@
   "type": "video",
   "title": "What's Up - November 2015",
   "description": "See all the phases of the moon by day and by night.",
-  "images": {
-    "aspect16x9": "http://image.oddworks.io/NASA/space5.jpeg"
-  },
+	"images": [
+		{"url": "http://image.oddworks.io/NASA/space5.jpeg", "mimeType": "image/jpeg"}
+	],
   "url": "http://www.nasa.gov/sites/default/files/atoms/video/jpl-20151102-mwhatsu-0001-320.mp4",
   "duration": 18287851,
   "meta": {

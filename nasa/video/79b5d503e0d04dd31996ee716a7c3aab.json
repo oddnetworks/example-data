@@ -3,9 +3,9 @@
   "type": "video",
   "title": "This Week @ NASA, April 1, 2016",
   "description": "Suited Test in Orion, Milestone for Spaceport of the Future and more ...",
-  "images": {
-    "aspect16x9": "http://image.oddworks.io/NASA/space4.jpeg"
-  },
+	"images": [
+		{"url": "http://image.oddworks.io/NASA/space4.jpeg", "mimeType": "image/jpeg"}
+	],
   "url": "http://www.nasa.gov/sites/default/files/atoms/video/nhq_20160401_this_week_nasa_h264.mp4",
   "duration": 64570855,
   "meta": {

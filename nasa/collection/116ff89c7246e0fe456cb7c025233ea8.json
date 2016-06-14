@@ -2,9 +2,9 @@
   "id": "116ff89c7246e0fe456cb7c025233ea8",
   "type": "collection",
   "title": "HD - NASA's Jet Propulsion Laboratory",
-  "images": {
-    "aspect16x9": "https://spaceholder.cc/1920x1080"
-  },
+	"images": [
+		{"url": "https://spaceholder.cc/1920x1080", "mimeType": "image/jpeg"}
+	],
   "relationships": {
     "entities": {
       "data": [

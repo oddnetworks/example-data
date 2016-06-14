@@ -3,9 +3,9 @@
   "type": "video",
   "title": "This Week@ NASA, April 15, 2016",
   "description": "SpaceX Dragon Arrives Safely at ISS, NASA @32nd Space Symposium and more ...",
-  "images": {
-    "aspect16x9": "http://image.oddworks.io/NASA/space5.jpeg"
-  },
+	"images": [
+		{"url": "http://image.oddworks.io/NASA/space5.jpeg", "mimeType": "image/jpeg"}
+	],
   "url": "http://www.nasa.gov/sites/default/files/atoms/video/nhq_20160415_this_week_nasa_h264.mp4",
   "duration": 63083498,
   "meta": {

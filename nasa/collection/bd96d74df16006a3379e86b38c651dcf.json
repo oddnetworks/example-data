@@ -2,9 +2,9 @@
   "id": "bd96d74df16006a3379e86b38c651dcf",
   "type": "collection",
   "title": "NASACast: This Week @ NASA Video",
-  "images": {
-    "aspect16x9": "https://spaceholder.cc/1920x1080"
-  },
+	"images": [
+		{"url": "https://spaceholder.cc/1920x1080", "mimeType": "image/jpeg"}
+	],
   "relationships": {
     "entities": {
       "data": [

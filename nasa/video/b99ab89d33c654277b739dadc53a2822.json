@@ -3,9 +3,9 @@
   "type": "video",
   "title": "What's Up - April 2016",
   "description": "Jupiter, Mars, the Lyrid meteor shower and 2016's best views of Mercury.",
-  "images": {
-    "aspect16x9": "http://image.oddworks.io/NASA/space3.jpeg"
-  },
+	"images": [
+		{"url": "http://image.oddworks.io/NASA/space3.jpeg", "mimeType": "image/jpeg"}
+	],
   "url": "http://www.nasa.gov/sites/default/files/atoms/video/jpl-20160401-whatsuf-0001-180-cc.mp4",
   "duration": 23451380,
   "meta": {

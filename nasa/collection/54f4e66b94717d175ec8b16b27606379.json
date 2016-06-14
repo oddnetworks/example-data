@@ -2,9 +2,9 @@
   "id": "54f4e66b94717d175ec8b16b27606379",
   "type": "collection",
   "title": "NASACast: Beyond Earth Video",
-  "images": {
-    "aspect16x9": "https://spaceholder.cc/1920x1080"
-  },
+	"images": [
+		{"url": "https://spaceholder.cc/1920x1080", "mimeType": "image/jpeg"}
+	],
   "relationships": {
     "entities": {
       "data": [

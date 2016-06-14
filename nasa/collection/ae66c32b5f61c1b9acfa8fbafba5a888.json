@@ -2,9 +2,9 @@
   "id": "ae66c32b5f61c1b9acfa8fbafba5a888",
   "type": "collection",
   "title": "NASACast: Solar System Video",
-  "images": {
-    "aspect16x9": "https://spaceholder.cc/1920x1080"
-  },
+	"images": [
+		{"url": "https://spaceholder.cc/1920x1080", "mimeType": "image/jpeg"}
+	],
   "relationships": {
     "entities": {
       "data": [

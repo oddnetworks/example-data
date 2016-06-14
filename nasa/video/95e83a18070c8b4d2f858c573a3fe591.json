@@ -3,9 +3,9 @@
   "type": "video",
   "title": "This Week @ NASA, March 25, 2016",
   "description": "Earth Expeditions kickoff, Kepler captures the shockwave of an exploding star, cargo launches to the International Space Station, and more..",
-  "images": {
-    "aspect16x9": "http://image.oddworks.io/NASA/space1.jpeg"
-  },
+	"images": [
+		{"url": "http://image.oddworks.io/NASA/space1.jpeg", "mimeType": "image/jpeg"}
+	],
   "url": "http://www.nasa.gov/sites/default/files/atoms/video/nhq_20160325_this_week_nasa_h264.mp4",
   "duration": 64561902,
   "meta": {

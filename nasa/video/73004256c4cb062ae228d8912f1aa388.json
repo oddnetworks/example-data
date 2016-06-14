@@ -3,9 +3,9 @@
   "type": "video",
   "title": "What's Up - February 2016",
   "description": "Five morning planets, comet Catalina passes Polaris, and icy Uranus and icy Vesta meet near Valentine's Day.",
-  "images": {
-    "aspect16x9": "http://image.oddworks.io/NASA/space2.jpeg"
-  },
+	"images": [
+		{"url": "http://image.oddworks.io/NASA/space2.jpeg", "mimeType": "image/jpeg"}
+	],
   "url": "http://www.nasa.gov/sites/default/files/atoms/video/jpl-20160201-whatsum-0001-180.mp4",
   "duration": 15680849,
   "meta": {
