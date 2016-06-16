@@ -1,0 +1,11 @@
+{
+	"id": "web",
+	"type": "platform",
+	"channel": "nasa",
+	"platformType": "WEB",
+	"category": "WEB",
+	"active": true,
+	"views": {
+		"homepage": "homepage"
+	}
+}
