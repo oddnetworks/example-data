@@ -1,6 +1,6 @@
 {
   "name": "@oddnetworks/oddworks-example-data",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Example data for Oddworks server",
   "main": "./index.js",
   "scripts": {

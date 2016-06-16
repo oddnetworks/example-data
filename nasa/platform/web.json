@@ -5,6 +5,11 @@
 	"platformType": "WEB",
 	"category": "WEB",
 	"active": true,
+	"features": {
+		"authentication": {
+			"enabled": false
+		}
+	},
 	"views": {
 		"homepage": "homepage"
 	}
