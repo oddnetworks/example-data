@@ -17,13 +17,11 @@ function seedData(bus, objects) {
 	const promises = [];
 
 	for(let object of objects) {
-		const searchable = Boolean(searchableTypes.indexOf(object.type) + 1);
-		let pattern = {role: 'store', cmd: 'set', type: object.type};
-		if (searchable) {
-			pattern = {role: 'catalog', cmd: 'create', searchable: true};
-		}
-
-		promises.push(bus.sendCommand(pattern, object));
+        	const searchable = Boolean(searchableTypes.indexOf(object.type) + 1);
+        	promises.push(bus.sendCommand({role: 'store', cmd: 'set', type: object.type}, object));
+        	if (searchable) {
+            		promises.push(bus.sendCommand({role: 'store', cmd: 'index', type: object.type}, object));
+        	}
 	}
 
 	return promises;
