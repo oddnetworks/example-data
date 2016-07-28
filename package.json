@@ -19,5 +19,8 @@
   "dependencies": {
     "bluebird": "^3.3.5",
     "glob": "^7.0.3"
+  },
+  "devDependencies": {
+    "xo": "^0.16.0"
   }
 }
