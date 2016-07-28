@@ -32,7 +32,7 @@ function seedData(bus, objects) {
 
 module.exports = bus => {
 	const loaded = [];
-	return glob('./+(channel|platform)/*.json', {cwd: __dirname})
+	return glob('./+(channel|platform|user)/*.json', {cwd: __dirname})
 		.then(loadFiles)
 		.then(resources => {
 			resources.forEach(resource => {
