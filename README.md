@@ -1,6 +1,6 @@
 # @oddnetworks/oddworks-example-data
 
-[![Gitter chat](https://badges.gitter.im/oddwnetworks/oddworks.png)](https://gitter.im/oddnetworks/oddworks "Gitter chat")
+[![slack.oddnetworks.com](http://slack.oddnetworks.com/badge.svg)](http://slack.oddnetworks.com)
 
 Example seed functions that help populate our example applications with data.
 
