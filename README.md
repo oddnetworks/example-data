@@ -1,7 +1,5 @@
 # @oddnetworks/oddworks-example-data
 
-[![slack.oddnetworks.com](http://slack.oddnetworks.com/badge.svg)](http://slack.oddnetworks.com)
-
 Example seed functions that help populate our example applications with data.
 
 ## Installation
