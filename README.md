@@ -21,7 +21,7 @@ Functions on the module `exampleData` will take an [oddcast](https://github.com/
 
 These functions return promises.
 
-In reality, these functions can do whatever you like. We use them to send messages on the oddcast bus so that our example data is sent to any observing "stores". Read more about stores in [oddworks](https://github.com/oddnetworks/oddworks)
+In reality, these functions can do whatever you like. We use them to send messages on the oddcast bus so that our example data is sent to any observing "stores". Read more about stores in [oddworks](https://gitlab.com/oddnetworks/oddworks/core)
 
 ### Seed Script
 

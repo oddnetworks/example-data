@@ -1,6 +1,6 @@
 {
   "name": "@oddnetworks/oddworks-example-data",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Example data for Oddworks server",
   "main": "./index.js",
   "scripts": {
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oddnetworks/oddworks-example-data.git"
+    "url": "git+https://gitlab.com/oddnetworks/oddworks/example-data.git"
   },
   "author": "Odd Networks",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/oddnetworks/oddworks-example-data/issues"
+    "url": "https://gitlab.com/oddnetworks/oddworks/example-data/issues"
   },
-  "homepage": "https://github.com/oddnetworks/oddworks-example-data#readme",
+  "homepage": "https://gitlab.com/oddnetworks/oddworks/example-data#readme",
   "dependencies": {
     "bluebird": "^3.3.5",
     "glob": "^7.0.3"
